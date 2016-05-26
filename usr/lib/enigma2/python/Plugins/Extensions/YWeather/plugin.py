@@ -1,7 +1,10 @@
- # Yahoo! weather for Hotkey
+# -*- coding: utf-8 -*-
+# Yahoo! weather for Hotkey
+# Copyright (c) openplus 2016
 # Copyright (c) 2boom 2015 
-# MOD by Openplus
-# v.0.1-r0
+# Based on yweather by 2boom
+# Rewrited by Openplus
+# v.1.0-r0
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -18,7 +21,9 @@
 import os
 import time
 import gettext
-import socket
+import json
+#import socket
+import urllib2, urllib
 from enigma import eTimer
 from enigma import getDesktop, addFont
 from twisted.web.client import downloadPage
@@ -32,7 +37,7 @@ from Components.ScrollLabel import ScrollLabel
 from Components.Language import language
 from Components.Pixmap import Pixmap
 from Components.Renderer import PiconUni
-from Components.Converter import YWeather
+#from Components.Converter import YWeather
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Screens.Screen import Screen
@@ -59,12 +64,12 @@ def iconsdirs():
 			iconset.append(istyledir)
 	return iconset
 
-config.plugins.yweather = ConfigSubsection()
-config.plugins.yweather.weather_city = ConfigText(default="753692", visible_width = 70, fixed_size = False)
-config.plugins.yweather.enabled = ConfigYesNo(default=True)
-config.plugins.yweather.skin = ConfigYesNo(default=False)
-config.plugins.yweather.istyle = ConfigSelection(choices = iconsdirs(), default="default")
-config.plugins.yweather.save()
+config.plugins.yweather = ConfigSubsection();
+config.plugins.yweather.celsius = ConfigYesNo(default = True)
+config.plugins.yweather.weather_city = ConfigText(default = "753692", visible_width = 70, fixed_size = False)
+config.plugins.yweather.enabled = ConfigYesNo(default = True)
+config.plugins.yweather.skin = ConfigYesNo(default = False)
+config.plugins.yweather.istyle = ConfigSelection(default = "default", choices = iconsdirs() )
 
 help_txt = _("1. Visit http://open-plus.es/YWeather/. Enter your city or zip code and press enter...\\n2. Copy ID (digit only) ex:Madrid=766273.\\n3. Paste your ID in \"City code\" and press \"Save\" \\n4. Finally press Get Data. And down the name of your city appears.\\nNote: If you choose to display the weather in infobar you must restart enigma.")
 
@@ -108,8 +113,11 @@ class WeatherInfo(Screen, ConfigListScreen):
 		self["pressure"] = StaticText()
 		self["humidity"] = StaticText()
 		self["city_locale"] = StaticText()
+		self['sunrise'] = StaticText()
+		self['sunset'] = StaticText()
 		self["picon_now"] = Pixmap()
 		self["tomorrow"] = StaticText(_('Tomorrow'))
+		
 		for daynumber in ('0', '1', '2', '3', '4'):
 			day = 'day' + daynumber
 			self["temp_" + day] = StaticText()
@@ -133,56 +141,53 @@ class WeatherInfo(Screen, ConfigListScreen):
 	def conf(self):
 		self.session.open(yweather_setup)
 
-	def isServerOnline(self):
-		try:
-			socket.gethostbyaddr('weather.yahooapis.com')
-		except:
-			return False
-		return True
-
 	def get_weather_data(self):
-		if not os.path.exists("/tmp/yweather.xml") or int((time.time() - os.stat("/tmp/yweather.xml").st_mtime)/60) >= self.time_update or self.notdata:
-			self.get_xmlfile()
+		if not os.path.exists("/tmp/yweather.json") or int((time.time() - os.stat("/tmp/yweather.json").st_mtime)/60) >= self.time_update or self.notdata:
+                        self.get_jsonfile()
 		else:
-			self.parse_weather_data()
+                        self.parse_weather_data()
 
 
 	def parse_weather_data(self):
+		
+		f = open("/tmp/yweather.json")
+                data = f.read()
+                self.result = json.loads(str(data))
 		self.forecast = []
-		for line in open("/tmp/yweather.xml"):
-			if '<yweather:location' in line:
-				self.location['city'] = self.get_data(line, 'city')
-				self.location['country'] = self.get_data(line, 'country')
-			elif '<yweather:units' in line:
-				for data in ('temperature', 'distance', 'pressure', 'speed'):
-					self.units[data] = self.get_data(line, data)
-			elif '<yweather:wind' in line:
-				for data in ('chill', 'direction', 'speed'):
-					self.wind[data] = self.get_data(line, data)
-			elif '<yweather:atmosphere' in line:
-				for data in ('humidity', 'visibility', 'pressure', 'rising'):
-					self.atmosphere[data] = self.get_data(line, data)
-			elif '<yweather:astronomy' in line:
-				self.astronomy['sunrise'] = self.get_data(line, 'sunrise')
-				self.astronomy['sunset'] = self.get_data(line, 'sunset')
-			elif '<yweather:condition' in line:
-				for data in ('text', 'code', 'temp', 'date'):
-					self.condition[data] = self.get_data(line, data)
-			elif '<geo:lat' in line:
-				self.geo['lat'] = self.get_data_xml(line)
-			elif '<geo:long' in line:
-				self.geo['long'] = self.get_data_xml(line)
-			elif '<yweather:forecast' in line:
-				self.forecast.append(line)
+		
+		self.location['city'] = str(self.result['query']['results']['channel']['location']['city'])
+		self.location['country'] = str(self.result['query']['results']['channel']['location']['country'])
+		self.units['temperature'] = str(self.result['query']['results']['channel']['units']['temperature'])
+		self.units['distance'] = str(self.result['query']['results']['channel']['units']['distance'])
+		self.units['pressure']= str(self.result['query']['results']['channel']['units']['pressure'])
+		self.units['speed'] = str(self.result['query']['results']['channel']['units']['speed'])
+		self.wind['chill'] = str(self.result['query']['results']['channel']['wind']['chill'])
+		self.wind['direction'] = str(self.result['query']['results']['channel']['wind']['direction'])
+		self.wind['speed'] = str(self.result['query']['results']['channel']['wind']['speed'])
+		self.atmosphere['humidity'] = str(self.result['query']['results']['channel']['atmosphere']['humidity'])
+		self.atmosphere['visibility'] = str(self.result['query']['results']['channel']['atmosphere']['visibility'])
+		self.atmosphere['pressure'] = str(self.result['query']['results']['channel']['atmosphere']['pressure'])
+		self.atmosphere['rising'] = str(self.result['query']['results']['channel']['atmosphere']['rising'])
+		self.astronomy['sunrise'] = str(self.result['query']['results']['channel']['astronomy']['sunrise'])
+		self.astronomy['sunset'] = str(self.result['query']['results']['channel']['astronomy']['sunset'])
+		self.geo['lat'] =  str(self.result['query']['results']['channel']['item']['lat'])
+                self.geo['long'] = str(self.result['query']['results']['channel']['item']['long'])
+		self.condition['text'] = str(self.result['query']['results']['channel']['item']['condition']['text'])
+		self.condition['code'] = str(self.result['query']['results']['channel']['item']['condition']['code'])
+		self.condition['temp'] = str(self.result['query']['results']['channel']['item']['condition']['temp'])
+		self.condition['date'] = str(self.result['query']['results']['channel']['item']['condition']['date'])
+		
+		
 		for data in ('day', 'date', 'low', 'high', 'text', 'code'):
 			for daynumber in ('0', '1', '2', '3', '4'):
 				self.forecastdata[data + daynumber] = ''
-		if len(self.forecast) is 5:
-			for data in ('day', 'date', 'low', 'high', 'text', 'code'):
-				for daynumber in ('0', '1', '2', '3', '4'):
-					self.forecastdata[data + daynumber] = self.get_data(self.forecast[int(daynumber)], data)
+		
+                for data in ('day', 'date', 'low', 'high', 'text', 'code'):
+                        for daynumber in ('0', '1', '2', '3', '4'):
+                                self.forecastdata[data + daynumber] = str(self.result['query']['results']['channel']['item']['forecast'][int(daynumber)][data])
 		else:
 			self.notdata = True
+		
 		for daynumber in ('0', '1', '2', '3', '4'):
 			day = 'day' + daynumber
 			if self.forecastdata[day] is not '':
@@ -190,36 +195,44 @@ class WeatherInfo(Screen, ConfigListScreen):
 			else:
 				self["forecast_" + day].text = _('N/A')
 				self.notdata = True
-			if self.forecastdata['low0'] is not '' and self.forecastdata['high0'] is not '':
-				self["temp_now_min"].text = _('min: %s') % self.tempsing(self.forecastdata['low0'])
-				self["temp_now_max"].text = _('max: %s') % self.tempsing(self.forecastdata['high0'])
-			else:
-				self["temp_now_min"].text = _('N/A')
-				self["temp_now_max"].text = _('N/A')
-				self.notdata = True
 			if self.forecastdata['low' + daynumber] is not '' and self.forecastdata['high' + daynumber] is not '':
-				self["temp_" + day].text = '%s / %s' % (self.tempsing_nu(self.forecastdata['low' + daynumber]), self.tempsing_nu(self.forecastdata['high' + daynumber]))
+				self["temp_" + day].text = str('%s/%s' % (self.tempsing(self.forecastdata['low' + daynumber]), self.tempsing(self.forecastdata['high' + daynumber])))
 			else:
 				self["temp_" + day].text = _('N/A')
 				self.notdata = True
-		defpicon = "%sExtensions/YWeather/istyle/%s/3200.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value)
+
+                if self.forecastdata['low0'] is not '' and self.forecastdata['high0'] is not '':
+                        self["temp_now_min"].text = _('min: %s') % self.tempsing(self.forecastdata['low0'])
+                        self["temp_now_max"].text = _('max: %s') % self.tempsing(self.forecastdata['high0'])
+                else:
+                        self["temp_now_min"].text = _('N/A')
+                        self["temp_now_max"].text = _('N/A')
+                        self.notdata = True
+
+		defpicon = "%sExtensions/YWeather/istyle/default/3200.png" % resolveFilename(SCOPE_PLUGINS)
 		for daynumber in ('1', '2', '3', '4'):
 			day = 'day' + daynumber
 			self["picon_" + day].instance.setScale(1)
 			if self.forecastdata['code' + daynumber] is not '':
-				self["text_" + day].text = self.text[self.forecastdata['code' + daynumber]]
-				self["picon_" + day].instance.setPixmapFromFile("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value, self.forecastdata['code' + daynumber]))
+				self["text_" + day].text = str(self.text[self.forecastdata['code' + str(daynumber)]])
+				# self["picon_" + day].instance.setPixmapFromFile("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value, self.forecastdata['code' + daynumber]))
+				self["picon_" + day].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/default/%s.png" % (resolveFilename(SCOPE_PLUGINS), self.forecastdata['code' + str(daynumber)])))
 			else:
 				self["text_" + day].text = _('N/A')
 				self["picon_" + day].instance.setPixmapFromFile(defpicon)
 				self.notdata = True
 			self["picon_" + day].instance.show()
 		if self.condition['temp'] is not '':
-			self["temp_now"].text = self.tempsing(self.condition['temp'])
-			self["temp_now_nounits"].text = self.tempsing_nu(self.condition['temp'])
+			self["temp_now"].text = str(self.tempsing(self.condition['temp']))
+			self["temp_now_nounits"].text = str(self.tempsing(self.condition['temp']))
+			self["temp_now_min"].text = str(self.tempsing(self.forecastdata["low0"]))
+                        self["temp_now_max"].text = str(self.tempsing(self.forecastdata["high0"]))
+			                
 		else:
 			self["temp_now"].text = _('N/A')
 			self["temp_now_nounits"].text = _('N/A')
+			self["temp_now_min"].text = _('N/A')
+                        self["temp_now_max"].text = _('N/A')
 			self.notdata = True
                 if self.condition['date'] is not '':
 			self["date"].text = (self.condition['date'])
@@ -289,21 +302,36 @@ class WeatherInfo(Screen, ConfigListScreen):
 		else:
 			self["humidity"].text = _('N/A')
 			self.notdata = True
+			
+		if not self.location['city'] is '' and not self.location['country'] is '':	
+                        self["city_locale"].text = self.location['city'] + "-" +self.location['country']
+                else:
+                        self["city_locale"].text = _('N/A')
+                        
+                if not self.astronomy['sunrise'] is '' and not self.astronomy['sunset'] is '':        
+                        self["sunrise"].text = self.astronomy['sunrise']
+                        self["sunset"].text = self.astronomy['sunset']
+                else:
+                        self["sunrise"].text = _('N/A')
+                        self["sunset"].text = _('N/A')
+		
 		self["picon_now"].instance.setScale(1)
 		if not self.condition['code'] is '':
-			self["picon_now"].instance.setPixmapFromFile("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value, self.condition['code']))
-		else:
+			self["picon_now"].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), "default", self.condition['code'])))
+			#self["picon_now"].instance.setPixmapFromFile("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), "default", self.condition['code']))
+                else:
 			self["picon_now"].instance.setPixmapFromFile(defpicon)
 		self["picon_now"].instance.show()
 
-	def get_xmlfile(self):
-		if self.isServerOnline():
-			xmlfile = "http://weather.yahooapis.com/forecastrss?w=%s&d=10&u=c" % config.plugins.yweather.weather_city.value
-			downloadPage(xmlfile, "/tmp/yweather.xml").addCallback(self.downloadFinished).addErrback(self.downloadFailed)
-		else:
-			self["text_now"].text = _('weatherserver not respond')
-			self.notdata = True
-
+	def get_jsonfile(self):
+                try:
+                        baseurl = "https://query.yahooapis.com/v1/public/yql?"
+                        yql_query = "select * from weather.forecast where woeid=%s" % config.plugins.yweather.weather_city.value
+                        jsonfile = baseurl + urllib.urlencode({'q':yql_query}) + "&format=json"
+                        downloadPage(jsonfile, "/tmp/yweather.json").addCallback(self.downloadFinished).addErrback(self.downloadFailed)
+                except TypeError:
+                        self.downloadFailed()
+                
 	def downloadFinished(self, result):
                 print "[YWeather] Download finished"
 		self.notdata = False
@@ -313,31 +341,20 @@ class WeatherInfo(Screen, ConfigListScreen):
 		self.notdata = True
 		print "[YWeather] Download failed!"
 
-	def get_data(self, line, what):
-		return line.split(what)[-1].split('"')[1]
-
-	def get_data_xml(self, line):
-		return line.split('</')[0].split('>')[1] 
-
 	def tempsing(self, what):
 		if not what[0] is '-' and not what[0] is '0':
-			return '+' + what + '%s' % unichr(176).encode("latin-1") + self.units['temperature']
+                        if self.units['temperature'] == "F":
+			                return str(int((int(what)-32)/1.8)) + '%s' % unichr(176) + 'C'                
+                        return '+' + what + '%s' % unichr(176) + self.units['temperature']
 		else:
-			return what + '%s' % unichr(176).encode("latin-1") + self.units['temperature']
+			return what + '%s' % unichr(176) + self.units['temperature']
 
-	def tempsing_nu(self, what):
-		if not what[0] is '-' and not what[0] is '0':
-			return '+' + what + '%s' % unichr(176).encode("latin-1")
-		else:
-			return what + '%s' % unichr(176).encode("latin-1")
-        
 ##############################################################################
         screenWidth = getDesktop(0).size().width()
 	if screenWidth and screenWidth == 1920:
             skin = """<screen name="WeatherInfo" position="0,0" size="1920,1080" title="OpenPlus! YWeather" zPosition="1" flags="wfNoBorder" backgroundColor="transparent">
   <eLabel position="493,307" size="457,2" backgroundColor="grey" zPosition="5" />
-  <widget backgroundColor="background" font="audiowide; 27" foregroundColor="white" halign="left" render="Label" position="500,275" size="450,30" source="session.CurrentService" transparent="1" zPosition="2">
-  <convert type="YWeather">city</convert></widget>
+  <widget source="city_locale" render="Label" position="500,275" size="450,30" zPosition="2" font="audiowide; 27" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" />
   <ePixmap position="421,839" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/key_exit2.png" transparent="1" alphatest="blend" />
   <widget name="picon_now" position="678,328" size="96,96" zPosition="2" alphatest="blend" />
   <widget source="temp_now_min" render="Label" position="473,391" size="190,20" zPosition="3" font="audiowide; 17" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" />
@@ -350,13 +367,13 @@ class WeatherInfo(Screen, ConfigListScreen):
   <widget source="wind" render="Label" position="787,321" size="160,20" zPosition="3" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" />
   <widget name="picon_day1" position="538,603" size="96,96" zPosition="2" alphatest="blend" />
   <widget source="tomorrow" render="Label" position="479,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
-  <widget source="temp_day1" render="Label" position="479,702" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
+  <widget source="temp_day1" render="Label" position="479,702" size="220,25" zPosition="3" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
   <widget source="text_day1" render="Label" position="479,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
   <ePixmap position="1418,839" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/key_menu2.png" transparent="1" alphatest="blend" />
   <widget name="picon_day2" position="794,603" size="96,96" zPosition="2" alphatest="blend" />
-  <widget source="forecast_day2" render="Label" position="732,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
-  <widget source="temp_day2" render="Label" position="732,702" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
-  <widget source="text_day2" render="Label" position="732,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+  <widget source="forecast_day2" render="Label" position="732,574" size="220,25" zPosition="3" font="audiowide; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+  <widget source="temp_day2" render="Label" position="732,702" size="220,25" zPosition="3" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
+  <widget source="text_day2" render="Label" position="732,729" size="220,45" zPosition="3" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
   <widget name="picon_day3" position="1048,604" size="96,96" zPosition="2" alphatest="blend" />
   <widget source="forecast_day3" render="Label" position="986,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" valign="center" foregroundColor="white" backgroundColor="background" />
   <widget source="temp_day3" render="Label" position="986,702" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
@@ -367,10 +384,8 @@ class WeatherInfo(Screen, ConfigListScreen):
   <widget source="temp_day4" render="Label" position="1240,702" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
   <widget source="text_day4" render="Label" position="1240,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
   <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/back.png" backgroundColor="background" position="center,center" size="1130,730" transparent="0" zPosition="-32" />
-  <widget backgroundColor="background" font="audiowide; 19" foregroundColor="yellow" halign="left" render="Label" position="1104,336" size="133,30" source="session.CurrentService" transparent="1" zPosition="2">
-  <convert type="YWeather">sunrise</convert></widget>
-  <widget backgroundColor="background" font="audiowide; 19" foregroundColor="yellow" halign="left" render="Label" position="1104,428" size="138,30" source="session.CurrentService" transparent="1" zPosition="2">
-  <convert type="YWeather">sunset</convert></widget>
+  <widget source="sunrise" render="Label" position="1104,336" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+  <widget source="sunset" render="Label" position="1104,428" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
   <ePixmap position="1018,297" size="73,73" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunri.png" transparent="1" alphatest="blend" />
   <ePixmap position="1026,393" size="61,61" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunset.png" transparent="1" alphatest="blend" />
   <widget transparent="1" zPosition="5" valign="center" halign="left" position="1104,302" size="138,30" font="audiowide; 19" foregroundColor="white" noWrap="1" source="text_sunri" render="Label" />
@@ -381,11 +396,10 @@ class WeatherInfo(Screen, ConfigListScreen):
         else:
             skin = """<screen name="WeatherInfo" position="center,center" size="1280,720" title="OpenPlus! YWeather" zPosition="1" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel position="193,149" size="440,2" backgroundColor="grey" zPosition="5" />
-    <widget backgroundColor="background" font="audiowide; 25" foregroundColor="white" halign="left" render="Label" position="205,115" size="417,29" source="session.CurrentService" transparent="1" zPosition="2">
-    <convert type="YWeather">city</convert></widget>
     <ePixmap position="157,603" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/key_exit2.png" transparent="1" alphatest="blend" />
     <widget name="picon_now" position="377,168" size="96,96" zPosition="2" alphatest="blend" />
     <widget source="temp_now_min" render="Label" position="185,232" size="170,20" zPosition="3" font="Regular; 17" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" />
+    <widget source="city_locale" render="Label" position="205,115" size="417,29" zPosition="3" font="Regular; 25" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" />
     <widget source="temp_now_max" render="Label" position="185,258" size="170,20" zPosition="3" font="Regular; 17" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" />
     <widget source="temp_now" render="Label" position="185,185" size="170,43" zPosition="2" font="Regular; 35" halign="right" transparent="1" foregroundColor="yellow" backgroundColor="background" />
     <widget source="feels_like" render="Label" position="185,161" size="170,20" zPosition="2" font="Regular; 17" halign="right" transparent="2" backgroundColor="background" />
@@ -395,7 +409,7 @@ class WeatherInfo(Screen, ConfigListScreen):
     <widget source="wind" render="Label" position="495,161" size="140,20" zPosition="3" font="Regular; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" />
     <widget name="picon_day1" position="232,402" size="96,96" zPosition="2" alphatest="blend" />
     <widget source="tomorrow" render="Label" position="217,380" size="125,25" zPosition="2" font="Regular; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
-    <widget source="temp_day1" render="Label" position="220,502" size="120,21" zPosition="2" font="Regular; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
+    <widget source="temp_day1" render="Label" position="220,502" size="120,21" zPosition="3" font="Regular; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
     <widget source="text_day1" render="Label" position="205,526" size="150,40" zPosition="2" font="Regular; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
     <ePixmap position="1044,603" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/key_menu2.png" transparent="1" alphatest="blend" />
     <widget name="picon_day2" position="471,402" size="96,96" zPosition="2" alphatest="blend" />
@@ -411,17 +425,16 @@ class WeatherInfo(Screen, ConfigListScreen):
     <widget source="forecast_day4" render="Label" position="938,380" size="125,25" zPosition="2" font="Regular; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
     <widget source="temp_day4" render="Label" position="938,502" size="120,21" zPosition="2" font="Regular; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
     <widget source="text_day4" render="Label" position="923,526" size="150,40" zPosition="2" font="Regular; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+    <widget source="sunrise" render="Label" position="791,179" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+    <widget source="sunset" render="Label" position="791,266" size="138,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
     <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/back7.png" backgroundColor="background" position="124,46" size="1030,630" transparent="0" zPosition="-32" />
-    <widget backgroundColor="background" font="Regular; 19" foregroundColor="yellow" halign="left" render="Label" position="791,179" size="133,30" source="session.CurrentService" transparent="1" zPosition="2">
-    <convert type="YWeather">sunrise</convert></widget>
-    <widget backgroundColor="background" font="Regular; 19" foregroundColor="yellow" halign="left" render="Label" position="791,266" size="138,30" source="session.CurrentService" transparent="1" zPosition="2">
-    <convert type="YWeather">sunset</convert></widget>
     <ePixmap position="702,141" size="73,73" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunri.png" transparent="1" alphatest="blend" />
     <ePixmap position="709,233" size="61,61" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunset.png" transparent="1" alphatest="blend" />
     <widget transparent="1" zPosition="5" valign="center" halign="left" position="791,149" size="138,30" font="Regular; 19" foregroundColor="white" noWrap="1" source="text_sunri" render="Label" backgroundColor="background" />
     <widget transparent="1" zPosition="5" valign="center" halign="left" position="791,236" size="137,30" font="Regular; 19" foregroundColor="white" noWrap="1" source="text_sunset" render="Label" backgroundColor="background" />
 </screen>"""
             
+
 
 class yweather_setup(Screen, ConfigListScreen):
 	skin = """<screen name="yweather_setup" position="center,center" size="750,545" title="OpenPlus! YWeather Configuration" flags="wfNoBorder" backgroundColor="background">
@@ -450,12 +463,12 @@ class yweather_setup(Screen, ConfigListScreen):
 		self.list = []
 		self.list.append(getConfigListEntry(_("City code"), config.plugins.yweather.weather_city))
 		self.list.append(getConfigListEntry(_("Weather icons style"), config.plugins.yweather.istyle))
-		self.list.append(getConfigListEntry(_("Weather in Infobar (only openplusHD)"), config.plugins.yweather.skin))
+		#self.list.append(getConfigListEntry(_("Weather in Infobar (only openplusHD)"), config.plugins.yweather.skin))
 		ConfigListScreen.__init__(self, self.list, session=session)
 		self["text"] = ScrollLabel("")
 		self["key_red"] = StaticText(_("Close"))
 		self["key_green"] = StaticText(_("Save"))
-		self["key_yellow"] = StaticText(_("Get data"))
+		#self["key_yellow"] = StaticText(_("Get data"))
                 self["key_blue"] = StaticText(_("Restart"))
                 self["text_city"] = StaticText(_("City name"))
 		self["text"].setText(help_txt)
@@ -466,7 +479,7 @@ class yweather_setup(Screen, ConfigListScreen):
 			"red": self.cancel,
 			"cancel": self.cancel,
 			"green": self.save,
-			"yellow": self.getdata,
+			#"yellow": self.getdata,
                         "blue": self.restartGUI,
 			"ok": self.save
 		}, -2)
@@ -489,36 +502,10 @@ class yweather_setup(Screen, ConfigListScreen):
 		ConfigListScreen.keyRight(self)
 		self.showicon()
 
-	def getdata(self):
-                if self.isServerOnline():
-			xmlfile = "http://weather.yahooapis.com/forecastrss?w=%s&d=10&u=c" % config.plugins.yweather.weather_city.value
-			downloadPage(xmlfile, "/tmp/yweather.xml").addCallback(self.downloadFinished).addErrback(self.downloadFailed)
-		else:
-			self.mbox = self.session.open(MessageBox,(_("Data not Saved")), MessageBox.TYPE_INFO, timeout = 4 )
-			self.notdata = True
-
-        def downloadFinished(self, result):
-                print "[YWeather] Download finished"
-                self.mbox = self.session.open(MessageBox,(_("Data Saved")), MessageBox.TYPE_INFO, timeout = 4 )
-		self.notdata = False
-		self.parse_weather_data()
-
-        def downloadFailed(self, result):
-		self.notdata = True
-		print "[YWeather] Download failed!"
-
-                
 	def cancel(self):
 		for i in self["config"].list:
 			i[1].cancel()
 		self.close(False)
-
-        def isServerOnline(self):
-		try:
-			socket.gethostbyaddr('weather.yahooapis.com')
-		except:
-			return False
-		return True
 
 	def restartGUI(self):
                 self.session.open(TryQuitMainloop, 3)
@@ -528,16 +515,16 @@ class yweather_setup(Screen, ConfigListScreen):
 			i[1].save()
 		configfile.save()
                 self.iConsole = iConsole()
-		if config.plugins.yweather.skin.value:
-                    
-                        print "infobar1 ok"
-                        if fileExists('%sExtensions/YWeather/skin_infobars.xml' % resolveFilename(SCOPE_PLUGINS)):
-                            self.iConsole.ePopen("cp /usr/lib/enigma2/python/Plugins/Extensions/YWeather/skin_infobars.xml /usr/share/enigma2/openplusHD/skin_infobars.xml")
-                else:
-                  if config.plugins.yweather.skin:
-                          print "infobar2 ok"
-                          if fileExists('%sExtensions/YWeather/skindef/skin_infobars.xml' % resolveFilename(SCOPE_PLUGINS)):
-                             self.iConsole.ePopen("cp /usr/lib/enigma2/python/Plugins/Extensions/YWeather/skindef/skin_infobars.xml /usr/share/enigma2/openplusHD/skin_infobars.xml")
+		#if config.plugins.yweather.skin.value:
+                #    
+                #        print "infobar1 ok"
+                #        if fileExists('%sExtensions/YWeather/skin_infobars.xml' % resolveFilename(SCOPE_PLUGINS)):
+                #            self.iConsole.ePopen("cp /usr/lib/enigma2/python/Plugins/Extensions/YWeather/skin_infobars.xml /usr/share/enigma2/openplusHD/skin_infobars.xml")
+                #else:
+                #  if config.plugins.yweather.skin:
+                #          print "infobar2 ok"
+                #          if fileExists('%sExtensions/YWeather/skindef/skin_infobars.xml' % resolveFilename(SCOPE_PLUGINS)):
+                #             self.iConsole.ePopen("cp /usr/lib/enigma2/python/Plugins/Extensions/YWeather/skindef/skin_infobars.xml /usr/share/enigma2/openplusHD/skin_infobars.xml")
 		self.mbox = self.session.open(MessageBox,(_("configuration is saved")), MessageBox.TYPE_INFO, timeout = 4 )
 
 def main(session, **kwargs):

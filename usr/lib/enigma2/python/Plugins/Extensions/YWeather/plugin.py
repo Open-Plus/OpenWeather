@@ -216,7 +216,7 @@ class WeatherInfo(Screen, ConfigListScreen):
 			if self.forecastdata['code' + daynumber] is not '':
 				self["text_" + day].text = str(self.text[self.forecastdata['code' + str(daynumber)]])
 				# self["picon_" + day].instance.setPixmapFromFile("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value, self.forecastdata['code' + daynumber]))
-				self["picon_" + day].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/default/%s.png" % (resolveFilename(SCOPE_PLUGINS), self.forecastdata['code' + str(daynumber)])))
+				self["picon_" + day].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value, self.forecastdata['code' + str(daynumber)])))
 			else:
 				self["text_" + day].text = _('N/A')
 				self["picon_" + day].instance.setPixmapFromFile(defpicon)
@@ -317,7 +317,8 @@ class WeatherInfo(Screen, ConfigListScreen):
 		
 		self["picon_now"].instance.setScale(1)
 		if not self.condition['code'] is '':
-			self["picon_now"].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), "default", self.condition['code'])))
+                        #self["picon_now"].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), "default", self.condition['code'])))
+                        self["picon_now"].instance.setPixmapFromFile(str("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), config.plugins.yweather.istyle.value, self.condition['code'])))
 			#self["picon_now"].instance.setPixmapFromFile("%sExtensions/YWeather/istyle/%s/%s.png" % (resolveFilename(SCOPE_PLUGINS), "default", self.condition['code']))
                 else:
 			self["picon_now"].instance.setPixmapFromFile(defpicon)
@@ -384,12 +385,12 @@ class WeatherInfo(Screen, ConfigListScreen):
   <widget source="temp_day4" render="Label" position="1240,702" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
   <widget source="text_day4" render="Label" position="1240,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
   <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/back.png" backgroundColor="background" position="center,center" size="1130,730" transparent="0" zPosition="-32" />
-  <widget source="sunrise" render="Label" position="1104,336" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
-  <widget source="sunset" render="Label" position="1104,428" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+  <widget source="sunrise" render="Label" position="1104,336" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
+  <widget source="sunset" render="Label" position="1104,428" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
   <ePixmap position="1018,297" size="73,73" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunri.png" transparent="1" alphatest="blend" />
   <ePixmap position="1026,393" size="61,61" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunset.png" transparent="1" alphatest="blend" />
-  <widget transparent="1" zPosition="5" valign="center" halign="left" position="1104,302" size="138,30" font="audiowide; 19" foregroundColor="white" noWrap="1" source="text_sunri" render="Label" />
-  <widget transparent="1" zPosition="5" valign="center" halign="left" position="1104,395" size="137,30" font="audiowide; 19" foregroundColor="white" noWrap="1" source="text_sunset" render="Label" />
+  <widget transparent="1" zPosition="5" valign="center" halign="left" position="1104,302" size="138,30" font="audiowide; 19" foregroundColor="white" noWrap="1" source="text_sunri" render="Label" backgroundColor="background" />
+  <widget transparent="1" zPosition="5" valign="center" halign="left" position="1104,395" size="137,30" font="audiowide; 19" foregroundColor="white" noWrap="1" source="text_sunset" render="Label" backgroundColor="background" />
   <widget source="text_date" position="539,805" size="357,25" backgroundColor="background" zPosition="5" transparent="1" halign="right" font="audiowide; 16" render="Label" />
   <widget source="date" render="Label" position="906,805" size="614,25" zPosition="2" font="audiowide; 16" halign="left" transparent="1" foregroundColor="yellow" backgroundColor="background" />
 </screen>"""
@@ -425,16 +426,14 @@ class WeatherInfo(Screen, ConfigListScreen):
     <widget source="forecast_day4" render="Label" position="938,380" size="125,25" zPosition="2" font="Regular; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
     <widget source="temp_day4" render="Label" position="938,502" size="120,21" zPosition="2" font="Regular; 19" halign="center" transparent="1" foregroundColor="yellow" backgroundColor="background" />
     <widget source="text_day4" render="Label" position="923,526" size="150,40" zPosition="2" font="Regular; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
-    <widget source="sunrise" render="Label" position="791,179" size="133,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
-    <widget source="sunset" render="Label" position="791,266" size="138,30" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" />
+    <widget source="sunrise" render="Label" position="791,179" size="124,30" zPosition="2" font="audiowide; 16" halign="left" transparent="1" foregroundColor="yellow" backgroundColor="background" />
+    <widget source="sunset" render="Label" position="791,266" size="124,30" zPosition="2" font="audiowide; 16" halign="left" transparent="1" foregroundColor="yellow" backgroundColor="background" />
     <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/back7.png" backgroundColor="background" position="124,46" size="1030,630" transparent="0" zPosition="-32" />
     <ePixmap position="702,141" size="73,73" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunri.png" transparent="1" alphatest="blend" />
     <ePixmap position="709,233" size="61,61" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/YWeather/images/sunset.png" transparent="1" alphatest="blend" />
     <widget transparent="1" zPosition="5" valign="center" halign="left" position="791,149" size="138,30" font="Regular; 19" foregroundColor="white" noWrap="1" source="text_sunri" render="Label" backgroundColor="background" />
     <widget transparent="1" zPosition="5" valign="center" halign="left" position="791,236" size="137,30" font="Regular; 19" foregroundColor="white" noWrap="1" source="text_sunset" render="Label" backgroundColor="background" />
 </screen>"""
-            
-
 
 class yweather_setup(Screen, ConfigListScreen):
 	skin = """<screen name="yweather_setup" position="center,center" size="750,545" title="OpenPlus! YWeather Configuration" flags="wfNoBorder" backgroundColor="background">
@@ -450,8 +449,7 @@ class yweather_setup(Screen, ConfigListScreen):
   <widget name="icon3" position="390,381" size="96,96" zPosition="2" alphatest="blend" foregroundColor="background" backgroundColor="background" />
   <widget name="icon4" position="535,381" size="96,96" zPosition="2" alphatest="blend" foregroundColor="background" backgroundColor="background" />
   <widget source="Title" transparent="1" render="Label" zPosition="2" valign="center" halign="center" position="15,5" size="720,33" noWrap="1" font="Regular; 28" />
-  <widget backgroundColor="background" foregroundColor="white" halign="right" render="Label" position="314,120" size="417,30" source="session.CurrentService" transparent="1" zPosition="2" font="Regular; 19">
-  <convert type="YWeather">city</convert></widget>
+  <widget backgroundColor="background" foregroundColor="white" halign="right" render="Label" position="314,120" size="417,30" source="city_locale" transparent="1" zPosition="2" font="Regular; 19" />
   <widget transparent="1" zPosition="5" valign="center" halign="left" position="20,120" size="295,30" foregroundColor="white" noWrap="1" source="text_city" render="Label" backgroundColor="background" font="Regular; 19" />
 </screen>"""
 	def __init__(self, session):
@@ -471,6 +469,7 @@ class yweather_setup(Screen, ConfigListScreen):
 		#self["key_yellow"] = StaticText(_("Get data"))
                 self["key_blue"] = StaticText(_("Restart"))
                 self["text_city"] = StaticText(_("City name"))
+                self["city_locale"] = StaticText()
 		self["text"].setText(help_txt)
 		for item in ('1', '2', '3', '4'):
 			self["icon" + item ] = Pixmap()
@@ -507,6 +506,12 @@ class yweather_setup(Screen, ConfigListScreen):
 			i[1].cancel()
 		self.close(False)
 
+        def city_locale(self): 
+                if not self.location['city'] is '' and not self.location['country'] is '':	
+                        self["city_locale"].text = self.location['city'] + "-" +self.location['country']
+                else:
+                        self["city_locale"].text = _('N/A')
+                        
 	def restartGUI(self):
                 self.session.open(TryQuitMainloop, 3)
                         

@@ -1,2 +1,2 @@
 # yweather
-Openweather based in 2boom yweather
+OpenWeather based in 2boom yweather

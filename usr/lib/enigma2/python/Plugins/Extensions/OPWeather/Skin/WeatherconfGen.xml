@@ -1,0 +1,10 @@
+<screen name="ConfigWeatherforMenu" position="center,center" size="1280,720" title="Config Weather OpenPlus" flags="wfNoBorder" backgroundColor="transparent">
+	<widget name="titleheader" position="72,24" size="550,50" zPosition="1" font="audiowide; 30" foregroundColor="white" backgroundColor="background" halign="left" valign="center" transparent="1" />
+	<widget position="161,656" size="210,21" font="Regular;20" halign="left" backgroundColor="background" zPosition="1" render="Label" transparent="1" source="key_red" />
+	<widget position="400,656" size="210,21" font="Regular;20" halign="left" backgroundColor="background" zPosition="1" render="Label" transparent="1" source="key_green" />
+        <widget position="658,656" size="210,21" font="Regular;20" halign="left" backgroundColor="background" zPosition="1" render="Label" transparent="1" source="key_yellow" />
+	<widget position="903,656" size="210,21" font="Regular;20" halign="left" backgroundColor="background" zPosition="1" render="Label" transparent="1" source="key_blue" />
+	<widget selectionPixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/sep4.png" name="config" position="72,104" size="1135,531" scrollbarMode="showOnDemand" itemHeight="40" transparent="1" backgroundColor="background" font="Regular; 24" foregroundColor="white" />
+        <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/backconf.png" backgroundColor="background" position="center,center" size="1230,720" transparent="0" zPosition="-32" />
+        <ePixmap position="116,652" size="1200,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/4color.png" zPosition="1" alphatest="blend" />    
+   </screen>

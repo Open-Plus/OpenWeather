@@ -1,0 +1,79 @@
+<screen name="OPWeather" position="center,center" size="1920,1080" title="OpenPlus! Weather" zPosition="1" flags="wfNoBorder" backgroundColor="transparent">
+  <widget name="lab1" position="492,276" size="468,30" font="audiowide; 19" foregroundColor="unffa500" transparent="1" zPosition="1" backgroundColor="background" halign="left" />
+  <widget name="lab13" position="524,276" size="278,30" font="audiowide; 19" foregroundColor="white" transparent="1" zPosition="1" backgroundColor="background" halign="right" />
+  <eLabel position="1018,307" size="430,2" backgroundColor="grey" zPosition="5" />
+  <widget render="Label" position="960,805" size="550,25" zPosition="2" font="audiowide; 16" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="lab3" />
+  <widget name="lab4b" position="615,344" halign="left" size="49,43" font="audiowide; 35" foregroundColor="unffa500" backgroundColor="background" valign="top" transparent="1" zPosition="2" />
+  <widget backgroundColor="background" font="audiowide; 22" foregroundColor="white" halign="left" render="Label" position="1016,274" size="450,30" transparent="1" zPosition="2" name="lab2" />
+  <ePixmap position="421,839" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/key_exit2.png" transparent="1" alphatest="blend" />
+  <widget name="lab5" position="659,344" size="96,96" zPosition="2" alphatest="blend" transparent="1" />
+  <widget render="Label" position="581,390" size="72,20" zPosition="3" font="audiowide; 17" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" name="lab14b" />
+  <widget render="Label" position="574,420" size="79,20" zPosition="3" font="audiowide; 17" halign="right" transparent="1" backgroundColor="background" foregroundColor="white" name="lab15b" />
+  <widget source="temp_now" render="Label" position="425,344" size="190,43" zPosition="2" font="audiowide; 35" halign="right" transparent="1" foregroundColor="unffa500" backgroundColor="background" name="lab4" />
+  <widget name="lab9" position="759,350" halign="left" size="115,20" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget render="Label" position="850,350" size="100,20" zPosition="2" font="audiowide; 17" halign="right" transparent="2" backgroundColor="background" name="lab9b" />
+  <widget render="Label" position="468,447" size="484,22" zPosition="3" font="audiowide; 18" halign="center" transparent="1" foregroundColor="unffa500" backgroundColor="background" name="lab6" />
+  <widget render="Label" position="804,385" size="146,20" zPosition="3" font="audiowide; 17" halign="right" transparent="1" foregroundColor="white" backgroundColor="background" name="lab8b" />
+  <widget render="Label" position="854,420" size="96,20" zPosition="3" font="audiowide; 17" halign="right" transparent="1" foregroundColor="white" backgroundColor="background" name="lab7b" />
+  <widget render="Label" position="672,318" size="345,20" zPosition="3" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="lab12b" />
+  <widget name="lab22" position="542,603" size="96,96" zPosition="2" alphatest="blend" transparent="1" />
+  <widget position="479,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="lab18" />
+  <widget render="Label" position="638,702" size="75,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="lab20b" />
+  <widget render="Label" position="479,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="lab21" />
+  <ePixmap position="1448,855" size="15,15" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/butred.png" transparent="1" alphatest="blend" />
+  <widget name="3lab22" position="795,603" size="96,96" zPosition="2" transparent="1" alphatest="blend" />
+  <widget render="Label" position="732,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="3lab18" />
+  <widget render="Label" position="793,702" size="70,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="3lab19b" />
+  <widget render="Label" position="732,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="3lab21" />
+  <widget name="4lab22" position="1048,603" size="96,96" zPosition="2" transparent="1" alphatest="blend" />
+  <widget render="Label" position="986,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" valign="center" foregroundColor="white" backgroundColor="background" name="4lab18" />
+  <widget render="Label" position="1047,702" size="70,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="4lab19b" />
+  <widget render="Label" position="986,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="4lab21" />
+  <widget transparent="1" render="Label" zPosition="2" valign="center" halign="center" position="410,833" size="1100,50" font="audiowide; 32" backgroundColor="background" foregroundColor="white" noWrap="1" name="titl" />
+  <widget name="5lab22" position="1304,603" size="96,96" zPosition="2" transparent="1" alphatest="blend" />
+  <widget render="Label" position="1240,574" size="220,25" zPosition="2" font="audiowide; 19" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="5lab18" />
+  <widget render="Label" position="1301,702" size="70,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="5lab19b" />
+  <widget render="Label" position="1240,729" size="220,45" zPosition="2" font="audiowide; 16" halign="center" transparent="1" foregroundColor="white" backgroundColor="background" name="5lab21" />
+  <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/back.png" backgroundColor="background" position="center,center" size="1127,730" transparent="0" zPosition="-32" />
+  <widget backgroundColor="background" font="audiowide; 19" foregroundColor="unffa500" halign="left" render="Label" position="1099,356" size="133,30" transparent="1" zPosition="2" name="lab10b" />
+  <widget backgroundColor="background" font="audiowide; 19" foregroundColor="unffa500" halign="left" render="Label" position="1099,427" size="138,30" transparent="1" zPosition="2" name="lab11b" />
+  <ePixmap position="1020,317" size="73,73" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/sunri.png" transparent="0" alphatest="blend" />
+  <ePixmap position="1027,396" size="61,61" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/sunset.png" transparent="0" alphatest="blend" />
+  <widget transparent="1" zPosition="5" valign="center" halign="left" position="1099,323" size="138,30" font="audiowide; 19" foregroundColor="white" noWrap="1" render="Label" name="lab10" backgroundColor="background" />
+  <widget transparent="1" zPosition="5" valign="center" halign="left" position="1099,394" size="137,30" font="audiowide; 19" foregroundColor="white" noWrap="1" render="Label" name="lab11" backgroundColor="background" />
+  <widget name="lab15" position="555,420" halign="left" size="100,20" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab14" position="555,390" halign="left" size="100,20" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab12" position="571,318" halign="right" size="100,20" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab7" position="759,420" halign="left" size="95,20" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab8" position="759,385" halign="left" size="56,20" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab24b" position="1283,323" halign="right" size="160,23" font="audiowide; 17" foregroundColor="white" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab25" position="1222,359" halign="left" size="100,23" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab25b" position="1296,359" halign="right" size="147,23" font="audiowide; 17" foregroundColor="white" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab24" position="1223,323" halign="left" size="100,23" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <ePixmap position="883,311" size="30,49" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/wind.png" transparent="0" alphatest="blend" />
+  <eLabel position="493,307" size="457,2" backgroundColor="grey" zPosition="5" />
+  <widget name="lab26" position="1222,394" halign="left" size="100,23" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab26b" position="1273,394" halign="right" size="170,23" font="audiowide; 17" foregroundColor="white" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab27" position="1222,429" halign="left" size="99,23" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <eLabel position="1200,320" size="2,145" backgroundColor="grey" zPosition="5" />
+  <widget name="lab27b" position="1273,429" halign="right" size="170,23" font="audiowide; 17" foregroundColor="white" backgroundColor="background" transparent="1" zPosition="1" />
+  <ePixmap position="540,340" size="17,50" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/temp.png" transparent="0" alphatest="blend" />
+  <widget name="lab19" position="493,702" halign="left" size="60,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="4lab19" position="1000,702" halign="left" size="60,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="5lab19" position="1254,702" halign="left" size="60,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="3lab19" position="746,702" halign="left" size="60,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="lab20" position="598,702" halign="left" size="50,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="5lab20" position="1360,702" halign="left" size="50,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="4lab20" position="1106,702" halign="left" size="50,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget name="3lab20" position="852,702" halign="left" size="50,25" font="audiowide; 17" foregroundColor="unffa500" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget render="Label" position="891,702" size="75,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="3lab20b" />
+  <widget render="Label" position="540,702" size="70,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="lab19b" />
+  <widget render="Label" position="1145,702" size="75,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="4lab20b" />
+  <widget render="Label" position="1399,702" size="75,25" zPosition="2" font="audiowide; 17" halign="left" transparent="1" foregroundColor="white" backgroundColor="background" name="5lab20b" /> 
+  <widget render="Label" position="410,805" size="550,25" zPosition="2" font="audiowide; 16" halign="right" transparent="1" foregroundColor="unffa500" backgroundColor="background" name="lab3b" />
+  <widget name="daydate0" position="806,276" halign="left" size="176,30" font="audiowide; 19" foregroundColor="white" backgroundColor="background" transparent="1" zPosition="1" />
+  <widget source="global.CurrentTime" render="Label" position="444,208" size="158,40" font="audiowide; 25" halign="left" backgroundColor="background" transparent="1" foregroundColor="darkgrey">
+  <convert type="ClockToText">Format:%H:%M:%S</convert>
+  </widget>
+  <widget position="1229,848" size="210,30" name="Key_Red" font="audiowide; 20" halign="right" backgroundColor="black" zPosition="3" transparent="1" />
+</screen>

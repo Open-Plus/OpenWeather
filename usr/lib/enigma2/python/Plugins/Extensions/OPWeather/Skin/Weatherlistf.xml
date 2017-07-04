@@ -1,0 +1,8 @@
+<screen name="SearchLocationfore" position="center,center" size="1280,720" title="OpenPlus! Weather" flags="wfNoBorder" backgroundColor="transparent">
+	<widget selectionPixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/sep3.png" itemHeight="30" name="menu" backgroundColor="background" font="Regular; 18" foregroundColor="white" position="72,94" size="1135,531" scrollbarMode="showOnDemand" transparent="1" />
+	<widget name="titleheader" position="72,24" size="550,50" zPosition="1" font="audiowide; 30" foregroundColor="white" backgroundColor="background" halign="left" valign="center" transparent="1" />
+	<widget position="97,657" size="210,21" name="key_red" font="Regular;20" halign="left" backgroundColor="background" zPosition="1" transparent="1" />
+	<widget position="336,657" size="210,21" name="key_green" font="Regular;20" halign="left" backgroundColor="background" zPosition="1" transparent="1" />
+	<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/backlistf.png" backgroundColor="background" position="center,center" size="1230,720" transparent="0" zPosition="-32" />
+        <ePixmap position="51,652" size="1200,50" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/2colors.png" zPosition="2" alphatest="blend" />
+</screen>

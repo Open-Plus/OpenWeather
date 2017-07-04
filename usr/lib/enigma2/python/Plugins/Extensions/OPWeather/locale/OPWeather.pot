@@ -1,0 +1,1170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid   ""
+msgstr  "Project-Id-Version: PACKAGE VERSION\n"
+        "Report-Msgid-Bugs-To: \n"
+        "POT-Creation-Date: 2017-05-14 22:24+0200\n"
+        "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+        "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+        "Language-Team: LANGUAGE <LL@li.org>\n"
+        "Language: \n"
+        "MIME-Version: 1.0\n"
+        "Content-Type: text/plain; charset=CHARSET\n"
+        "Content-Transfer-Encoding: 8bit\n"
+
+#: plugin.py:26
+msgid   "Yahoo"
+msgstr  ""
+
+#: plugin.py:27
+msgid   "Foreca"
+msgstr  ""
+
+#: plugin.py:43
+msgid   "Config Weather OpenPlus"
+msgstr  ""
+
+#: plugin.py:57 Weatherf.py:605
+msgid   "Close"
+msgstr  ""
+
+#: plugin.py:58 Search_Id.py:78 Weatherf.py:606 Weatherf.py:642
+msgid   "Save"
+msgstr  ""
+
+#: plugin.py:59
+msgid   "Weather Foreca"
+msgstr  ""
+
+#: plugin.py:60
+msgid   "Weather Yahoo"
+msgstr  ""
+
+#: plugin.py:70
+msgid   "The Weather in Menu by:"
+msgstr  ""
+
+#: plugin.py:84
+msgid   "Restart your %s %s to apply service settings\nRestart now?"
+msgstr  ""
+
+#: plugin.py:99 plugin.py:104 plugin.py:110 plugin.py:117 plugin.py:120
+#: plugin.py:129 plugin.py:132
+msgid   "OpenWeather"
+msgstr  ""
+
+#: plugin.py:121 plugin.py:133
+msgid   "Your city weather for Openplus!"
+msgstr  ""
+
+#: Search_Id.py:77
+msgid   "Exit"
+msgstr  ""
+
+#: Search_Id.py:79 Weatherf.py:142 Weatherf.py:643 Weather.py:54
+msgid   "OpenPlus! Weather"
+msgstr  ""
+
+#: Search_Id.py:138
+msgid   "Yahoo Weather city or zip code:"
+msgstr  ""
+
+#: Weatherf.py:50
+msgid   "Celsius"
+msgstr  ""
+
+#: Weatherf.py:51
+msgid   "Fahrenheit"
+msgstr  ""
+
+#: Weatherf.py:143
+msgid   "Location:"
+msgstr  ""
+
+#: Weatherf.py:144
+msgid   "Timezone:"
+msgstr  ""
+
+#: Weatherf.py:145 Weather.py:312
+msgid   "Latitude:"
+msgstr  ""
+
+#: Weatherf.py:146 Weather.py:315
+msgid   "Longitude:"
+msgstr  ""
+
+#: Weatherf.py:147
+msgid   "Temperature:"
+msgstr  ""
+
+#: Weatherf.py:148
+msgid   "Feels like:"
+msgstr  ""
+
+#: Weatherf.py:149 Weather.py:211
+msgid   "Humidity:"
+msgstr  ""
+
+#: Weatherf.py:150
+msgid   "Chance precip:"
+msgstr  ""
+
+#: Weatherf.py:151 Weather.py:226
+msgid   "Wind:"
+msgstr  ""
+
+#: Weatherf.py:152
+msgid   "Observation point:"
+msgstr  ""
+
+#: Weatherf.py:153
+msgid   "Date:"
+msgstr  ""
+
+#: Weatherf.py:154
+msgid   "Day week:"
+msgstr  ""
+
+#: Weatherf.py:155 Weather.py:203
+msgid   "Last Updated:"
+msgstr  ""
+
+#: Weatherf.py:156 Weather.py:100
+msgid   "Change city"
+msgstr  ""
+
+#: Weatherf.py:338 Weatherf.py:348 Weatherf.py:353 Weatherf.py:358
+#: Weatherf.py:363 Weatherf.py:369 Weatherf.py:384 Weatherf.py:394
+#: Weatherf.py:411 Weatherf.py:421 Weatherf.py:426 Weatherf.py:452
+#: Weatherf.py:457 Weatherf.py:473 Weatherf.py:483 Weatherf.py:488
+#: Weatherf.py:505 Weatherf.py:514 Weatherf.py:519 Weatherf.py:536
+#: Weatherf.py:545 Weatherf.py:550
+#, python-format
+msgid   "%s"
+msgstr  ""
+
+#: Weatherf.py:340 Weatherf.py:345 Weatherf.py:350 Weatherf.py:355
+#: Weatherf.py:360 Weatherf.py:365 Weatherf.py:371 Weatherf.py:376
+#: Weatherf.py:381 Weatherf.py:386 Weatherf.py:391 Weatherf.py:396
+#: Weatherf.py:408 Weatherf.py:413 Weatherf.py:418 Weatherf.py:423
+#: Weatherf.py:428 Weatherf.py:439 Weatherf.py:444 Weatherf.py:449
+#: Weatherf.py:454 Weatherf.py:459 Weatherf.py:470 Weatherf.py:475
+#: Weatherf.py:480 Weatherf.py:485 Weatherf.py:490 Weatherf.py:502
+#: Weatherf.py:507 Weatherf.py:511 Weatherf.py:516 Weatherf.py:521
+#: Weatherf.py:533 Weatherf.py:538 Weatherf.py:542 Weatherf.py:547
+#: Weatherf.py:552
+msgid   "n/a"
+msgstr  ""
+
+#: Weatherf.py:343
+#, python-format
+msgid   "%s h"
+msgstr  ""
+
+#: Weatherf.py:570
+msgid   "Enter text to search city"
+msgstr  ""
+
+#: Weatherf.py:590
+msgid   "Config Weather Foreca"
+msgstr  ""
+
+#: Weatherf.py:611
+msgid   "Scale of temperature:"
+msgstr  ""
+
+#: Weatherf.py:625
+msgid   "Configuration is saved"
+msgstr  ""
+
+#: Weatherf.py:641
+msgid   "Cancel"
+msgstr  ""
+
+#: Weather.py:53
+msgid   "Retrieving data ..."
+msgstr  ""
+
+#: Weather.py:173
+msgid   "Sorry, wrong WOEID"
+msgstr  ""
+
+#: Weather.py:196
+msgid   "Yahoo Weather"
+msgstr  ""
+
+#: Weather.py:214
+msgid   "Pres:"
+msgstr  ""
+
+#: Weather.py:217
+msgid   "Visibility:"
+msgstr  ""
+
+#: Weather.py:220
+msgid   "Sunrise"
+msgstr  ""
+
+#: Weather.py:223
+msgid   "Sunset"
+msgstr  ""
+
+#: Weather.py:232 Weather.py:253 Weather.py:268 Weather.py:283 Weather.py:298
+msgid   "Max:"
+msgstr  ""
+
+#: Weather.py:235 Weather.py:256 Weather.py:271 Weather.py:286 Weather.py:301
+msgid   "Min:"
+msgstr  ""
+
+#: Weather.py:318
+msgid   "Region:"
+msgstr  ""
+
+#: Weather.py:321
+msgid   "Country:"
+msgstr  ""
+
+#: Weather.py:350
+msgid   "North"
+msgstr  ""
+
+#: Weather.py:352
+msgid   "NEast"
+msgstr  ""
+
+#: Weather.py:354
+msgid   "East"
+msgstr  ""
+
+#: Weather.py:356
+msgid   "SEast"
+msgstr  ""
+
+#: Weather.py:358
+msgid   "South"
+msgstr  ""
+
+#: Weather.py:360
+msgid   "SWest"
+msgstr  ""
+
+#: Weather.py:362
+msgid   "West"
+msgstr  ""
+
+#: Weather.py:364
+msgid   "NWest"
+msgstr  ""
+
+#: Weather.py:368
+msgid   "Monday"
+msgstr  ""
+
+#: Weather.py:370
+msgid   "Tuesday"
+msgstr  ""
+
+#: Weather.py:372
+msgid   "Wednesday"
+msgstr  ""
+
+#: Weather.py:374
+msgid   "Thursday"
+msgstr  ""
+
+#: Weather.py:376
+msgid   "Friday"
+msgstr  ""
+
+#: Weather.py:378
+msgid   "Saturday"
+msgstr  ""
+
+#: Weather.py:380
+msgid   "Sunday"
+msgstr  ""
+
+#: Weather.py:386
+msgid   "Spain"
+msgstr  ""
+
+#: Weather.py:388
+msgid   "France"
+msgstr  ""
+
+#: Weather.py:390
+msgid   "Germany"
+msgstr  ""
+
+#: Weather.py:392
+msgid   "Italy"
+msgstr  ""
+
+#: Weather.py:394
+msgid   "United Kingdom"
+msgstr  ""
+
+#: Weather.py:396
+msgid   "Portugal"
+msgstr  ""
+
+#: Weather.py:398
+msgid   "Belgium"
+msgstr  ""
+
+#: Weather.py:404
+msgid   "Catalonia"
+msgstr  ""
+
+#: Weather.py:406
+msgid   "Galicia"
+msgstr  ""
+
+#: Weather.py:408
+msgid   "Andalusia"
+msgstr  ""
+
+#: Weather.py:410
+msgid   "Madrid"
+msgstr  ""
+
+#: Weather.py:412
+msgid   "Valencia"
+msgstr  ""
+
+#: Weather.py:414
+msgid   "Castille and Leon"
+msgstr  ""
+
+#: Weather.py:416
+msgid   "Basque Country"
+msgstr  ""
+
+#: Weather.py:418
+msgid   "Castille la Mancha"
+msgstr  ""
+
+#: Weather.py:420
+msgid   "Canary Islands"
+msgstr  ""
+
+#: Weather.py:422
+msgid   "Murcia"
+msgstr  ""
+
+#: Weather.py:424
+msgid   "Extremadura"
+msgstr  ""
+
+#: Weather.py:426
+msgid   "Balearic Islands"
+msgstr  ""
+
+#: Weather.py:428
+msgid   "Asturias"
+msgstr  ""
+
+#: Weather.py:430
+msgid   "Navarre"
+msgstr  ""
+
+#: Weather.py:432
+msgid   "Cantabria"
+msgstr  ""
+
+#: Weather.py:434
+msgid   "La Rioja"
+msgstr  ""
+
+#: Weather.py:440
+msgid   "January"
+msgstr  ""
+
+#: Weather.py:442
+msgid   "February"
+msgstr  ""
+
+#: Weather.py:444
+msgid   "March"
+msgstr  ""
+
+#: Weather.py:446
+msgid   "April"
+msgstr  ""
+
+#: Weather.py:448
+msgid   "May"
+msgstr  ""
+
+#: Weather.py:450
+msgid   "June"
+msgstr  ""
+
+#: Weather.py:452
+msgid   "July"
+msgstr  ""
+
+#: Weather.py:454
+msgid   "August"
+msgstr  ""
+
+#: Weather.py:456
+msgid   "September"
+msgstr  ""
+
+#: Weather.py:458
+msgid   "October"
+msgstr  ""
+
+#: Weather.py:460
+msgid   "November"
+msgstr  ""
+
+#: Weather.py:462
+msgid   "December"
+msgstr  ""
+
+#: Weather.py:468
+msgid   "AM Clouds/PM Sun"
+msgstr  ""
+
+#: Weather.py:470
+msgid   "AM Drizzle"
+msgstr  ""
+
+#: Weather.py:472
+msgid   "AM Drizzle/Wind"
+msgstr  ""
+
+#: Weather.py:474
+msgid   "AM Fog/PM Clouds"
+msgstr  ""
+
+#: Weather.py:476
+msgid   "AM Fog/PM Sun"
+msgstr  ""
+
+#: Weather.py:478
+msgid   "AM Ice"
+msgstr  ""
+
+#: Weather.py:480
+msgid   "AM Light Rain"
+msgstr  ""
+
+#: Weather.py:482
+msgid   "AM Light Rain/Wind"
+msgstr  ""
+
+#: Weather.py:484
+msgid   "AM Light Snow"
+msgstr  ""
+
+#: Weather.py:486
+msgid   "AM Rain"
+msgstr  ""
+
+#: Weather.py:488
+msgid   "AM Rain/Snow Showers"
+msgstr  ""
+
+#: Weather.py:490
+msgid   "AM Rain/Snow"
+msgstr  ""
+
+#: Weather.py:492
+msgid   "AM Rain/Snow/Wind"
+msgstr  ""
+
+#: Weather.py:494
+msgid   "AM Rain/Wind"
+msgstr  ""
+
+#: Weather.py:496
+msgid   "AM Showers"
+msgstr  ""
+
+#: Weather.py:498
+msgid   "AM Showers/Wind"
+msgstr  ""
+
+#: Weather.py:500
+msgid   "AM Snow Showers"
+msgstr  ""
+
+#: Weather.py:502
+msgid   "AM Snow"
+msgstr  ""
+
+#: Weather.py:504
+msgid   "AM Thundershowers"
+msgstr  ""
+
+#: Weather.py:506
+msgid   "Blowing Snow"
+msgstr  ""
+
+#: Weather.py:508
+msgid   "Breezy"
+msgstr  ""
+
+#: Weather.py:510
+msgid   "Clear"
+msgstr  ""
+
+#: Weather.py:512
+msgid   "Clear/Windy"
+msgstr  ""
+
+#: Weather.py:514
+msgid   "Clouds Early/Clearing Late"
+msgstr  ""
+
+#: Weather.py:516
+msgid   "Cloudy"
+msgstr  ""
+
+#: Weather.py:518
+msgid   "Cloudy/Wind"
+msgstr  ""
+
+#: Weather.py:520
+msgid   "Cloudy/Windy"
+msgstr  ""
+
+#: Weather.py:522
+msgid   "Drifting Snow"
+msgstr  ""
+
+#: Weather.py:524
+msgid   "Drifting Snow/Windy"
+msgstr  ""
+
+#: Weather.py:526
+msgid   "Drizzle Early"
+msgstr  ""
+
+#: Weather.py:528
+msgid   "Drizzle Late"
+msgstr  ""
+
+#: Weather.py:530
+msgid   "Drizzle"
+msgstr  ""
+
+#: Weather.py:532
+msgid   "Drizzle/Fog"
+msgstr  ""
+
+#: Weather.py:534
+msgid   "Drizzle/Wind"
+msgstr  ""
+
+#: Weather.py:536
+msgid   "Drizzle/Windy"
+msgstr  ""
+
+#: Weather.py:538
+msgid   "Fair"
+msgstr  ""
+
+#: Weather.py:540
+msgid   "Fair/Windy"
+msgstr  ""
+
+#: Weather.py:542
+msgid   "Few Showers"
+msgstr  ""
+
+#: Weather.py:544
+msgid   "Few Showers/Wind"
+msgstr  ""
+
+#: Weather.py:546
+msgid   "Few Snow Showers"
+msgstr  ""
+
+#: Weather.py:548
+msgid   "Fog Early/Clouds Late"
+msgstr  ""
+
+#: Weather.py:550
+msgid   "Fog Late"
+msgstr  ""
+
+#: Weather.py:552
+msgid   "Fog"
+msgstr  ""
+
+#: Weather.py:554
+msgid   "Fog/Windy"
+msgstr  ""
+
+#: Weather.py:556
+msgid   "Foggy"
+msgstr  ""
+
+#: Weather.py:558
+msgid   "Freezing Drizzle"
+msgstr  ""
+
+#: Weather.py:560
+msgid   "Freezing Drizzle/Windy"
+msgstr  ""
+
+#: Weather.py:562
+msgid   "Freezing Rain"
+msgstr  ""
+
+#: Weather.py:564
+msgid   "Haze"
+msgstr  ""
+
+#: Weather.py:566
+msgid   "Heavy Drizzle"
+msgstr  ""
+
+#: Weather.py:568
+msgid   "Heavy Rain Shower"
+msgstr  ""
+
+#: Weather.py:570
+msgid   "Heavy Rain"
+msgstr  ""
+
+#: Weather.py:572
+msgid   "Heavy Rain/Wind"
+msgstr  ""
+
+#: Weather.py:574
+msgid   "Heavy Rain/Windy"
+msgstr  ""
+
+#: Weather.py:576
+msgid   "Heavy Snow Shower"
+msgstr  ""
+
+#: Weather.py:578
+msgid   "Heavy Snow"
+msgstr  ""
+
+#: Weather.py:580
+msgid   "Heavy Snow/Wind"
+msgstr  ""
+
+#: Weather.py:582
+msgid   "Heavy Thunderstorm"
+msgstr  ""
+
+#: Weather.py:584
+msgid   "Heavy Thunderstorm/Windy"
+msgstr  ""
+
+#: Weather.py:586
+msgid   "Ice Crystals"
+msgstr  ""
+
+#: Weather.py:588
+msgid   "Ice Late"
+msgstr  ""
+
+#: Weather.py:590
+msgid   "Isolated T-storms"
+msgstr  ""
+
+#: Weather.py:592
+msgid   "Isolated Thunderstorms"
+msgstr  ""
+
+#: Weather.py:594
+msgid   "Light Drizzle"
+msgstr  ""
+
+#: Weather.py:596
+msgid   "Light Freezing Drizzle"
+msgstr  ""
+
+#: Weather.py:598
+msgid   "Light Freezing Rain"
+msgstr  ""
+
+#: Weather.py:600
+msgid   "Light Freezing Rain/Fog"
+msgstr  ""
+
+#: Weather.py:602
+msgid   "Light Rain Early"
+msgstr  ""
+
+#: Weather.py:604
+msgid   "Light Rain"
+msgstr  ""
+
+#: Weather.py:606
+msgid   "Light Rain Late"
+msgstr  ""
+
+#: Weather.py:608
+msgid   "Light Rain Shower"
+msgstr  ""
+
+#: Weather.py:610
+msgid   "Light Rain Shower/Fog"
+msgstr  ""
+
+#: Weather.py:612
+msgid   "Light Rain Shower/Windy"
+msgstr  ""
+
+#: Weather.py:614
+msgid   "Light Rain with Thunder"
+msgstr  ""
+
+#: Weather.py:616
+msgid   "Light Rain/Fog"
+msgstr  ""
+
+#: Weather.py:618
+msgid   "Light Rain/Freezing Rain"
+msgstr  ""
+
+#: Weather.py:620
+msgid   "Light Rain/Wind Early"
+msgstr  ""
+
+#: Weather.py:622
+msgid   "Light Rain/Wind Late"
+msgstr  ""
+
+#: Weather.py:624
+msgid   "Light Rain/Wind"
+msgstr  ""
+
+#: Weather.py:626
+msgid   "Light Rain/Windy"
+msgstr  ""
+
+#: Weather.py:628
+msgid   "Light Sleet"
+msgstr  ""
+
+#: Weather.py:630
+msgid   "Light Snow Early"
+msgstr  ""
+
+#: Weather.py:632
+msgid   "Light Snow Grains"
+msgstr  ""
+
+#: Weather.py:634
+msgid   "Light Snow Late"
+msgstr  ""
+
+#: Weather.py:636
+msgid   "Light Snow Shower"
+msgstr  ""
+
+#: Weather.py:638
+msgid   "Light Snow Shower/Fog"
+msgstr  ""
+
+#: Weather.py:640
+msgid   "Light Snow with Thunder"
+msgstr  ""
+
+#: Weather.py:642
+msgid   "Light Snow"
+msgstr  ""
+
+#: Weather.py:644
+msgid   "Light Snow/Fog"
+msgstr  ""
+
+#: Weather.py:646
+msgid   "Light Snow/Freezing Rain"
+msgstr  ""
+
+#: Weather.py:648
+msgid   "Light Snow/Wind"
+msgstr  ""
+
+#: Weather.py:650
+msgid   "Light Snow/Windy"
+msgstr  ""
+
+#: Weather.py:652
+msgid   "Light Snow/Windy/Fog"
+msgstr  ""
+
+#: Weather.py:654
+msgid   "Mist"
+msgstr  ""
+
+#: Weather.py:656
+msgid   "Mostly Clear"
+msgstr  ""
+
+#: Weather.py:658
+msgid   "Mostly Cloudy"
+msgstr  ""
+
+#: Weather.py:660
+msgid   "Mostly Cloudy/Wind"
+msgstr  ""
+
+#: Weather.py:662
+msgid   "Mostly Sunny"
+msgstr  ""
+
+#: Weather.py:664
+msgid   "Partial Fog"
+msgstr  ""
+
+#: Weather.py:666
+msgid   "Partly Cloudy"
+msgstr  ""
+
+#: Weather.py:668
+msgid   "Partly Cloudy/Wind"
+msgstr  ""
+
+#: Weather.py:670
+msgid   "Patches of Fog"
+msgstr  ""
+
+#: Weather.py:672
+msgid   "Patches of Fog/Windy"
+msgstr  ""
+
+#: Weather.py:674
+msgid   "PM Drizzle"
+msgstr  ""
+
+#: Weather.py:676
+msgid   "PM Fog"
+msgstr  ""
+
+#: Weather.py:678
+msgid   "PM Light Snow"
+msgstr  ""
+
+#: Weather.py:680
+msgid   "PM Light Rain"
+msgstr  ""
+
+#: Weather.py:682
+msgid   "PM Light Rain/Wind"
+msgstr  ""
+
+#: Weather.py:684
+msgid   "PM Light Snow/Wind"
+msgstr  ""
+
+#: Weather.py:686
+msgid   "PM Rain"
+msgstr  ""
+
+#: Weather.py:688
+msgid   "PM Rain/Snow Showers"
+msgstr  ""
+
+#: Weather.py:690
+msgid   "PM Rain/Snow"
+msgstr  ""
+
+#: Weather.py:692
+msgid   "PM Rain/Wind"
+msgstr  ""
+
+#: Weather.py:694
+msgid   "PM Showers"
+msgstr  ""
+
+#: Weather.py:696
+msgid   "PM Showers/Wind"
+msgstr  ""
+
+#: Weather.py:698
+msgid   "PM Snow Showers"
+msgstr  ""
+
+#: Weather.py:700
+msgid   "PM Snow Showers/Wind"
+msgstr  ""
+
+#: Weather.py:702
+msgid   "PM Snow"
+msgstr  ""
+
+#: Weather.py:704
+msgid   "PM T-storms"
+msgstr  ""
+
+#: Weather.py:706
+msgid   "PM Thundershowers"
+msgstr  ""
+
+#: Weather.py:708
+msgid   "PM Thunderstorms"
+msgstr  ""
+
+#: Weather.py:710
+msgid   "Rain and Snow"
+msgstr  ""
+
+#: Weather.py:712
+msgid   "Rain and Snow/Windy"
+msgstr  ""
+
+#: Weather.py:714
+msgid   "Rain/Snow Showers/Wind"
+msgstr  ""
+
+#: Weather.py:716
+msgid   "Rain Early"
+msgstr  ""
+
+#: Weather.py:718
+msgid   "Rain Late"
+msgstr  ""
+
+#: Weather.py:720
+msgid   "Rain Shower"
+msgstr  ""
+
+#: Weather.py:722
+msgid   "Rain Shower/Windy"
+msgstr  ""
+
+#: Weather.py:724
+msgid   "Rain to Snow"
+msgstr  ""
+
+#: Weather.py:726
+msgid   "Rain"
+msgstr  ""
+
+#: Weather.py:728
+msgid   "Rain/Snow Early"
+msgstr  ""
+
+#: Weather.py:730
+msgid   "Rain/Snow Late"
+msgstr  ""
+
+#: Weather.py:732
+msgid   "Rain/Snow Showers Early"
+msgstr  ""
+
+#: Weather.py:734
+msgid   "Rain/Snow Showers Late"
+msgstr  ""
+
+#: Weather.py:736
+msgid   "Rain/Snow Showers"
+msgstr  ""
+
+#: Weather.py:738
+msgid   "Rain/Snow"
+msgstr  ""
+
+#: Weather.py:740
+msgid   "Rain/Snow/Wind"
+msgstr  ""
+
+#: Weather.py:742
+msgid   "Rain/Thunder"
+msgstr  ""
+
+#: Weather.py:744
+msgid   "Rain/Wind Early"
+msgstr  ""
+
+#: Weather.py:746
+msgid   "Rain/Wind Late"
+msgstr  ""
+
+#: Weather.py:748
+msgid   "Rain/Wind"
+msgstr  ""
+
+#: Weather.py:750
+msgid   "Rain/Windy"
+msgstr  ""
+
+#: Weather.py:752
+msgid   "Scattered Showers"
+msgstr  ""
+
+#: Weather.py:754
+msgid   "Scattered Showers/Wind"
+msgstr  ""
+
+#: Weather.py:756
+msgid   "Scattered Snow Showers"
+msgstr  ""
+
+#: Weather.py:758
+msgid   "Scattered Snow Showers/Wind"
+msgstr  ""
+
+#: Weather.py:760
+msgid   "Scattered T-storms"
+msgstr  ""
+
+#: Weather.py:762
+msgid   "Scattered Thunderstorms"
+msgstr  ""
+
+#: Weather.py:764
+msgid   "Shallow Fog"
+msgstr  ""
+
+#: Weather.py:766
+msgid   "Showers"
+msgstr  ""
+
+#: Weather.py:768
+msgid   "Showers Early"
+msgstr  ""
+
+#: Weather.py:770
+msgid   "Showers Late"
+msgstr  ""
+
+#: Weather.py:772
+msgid   "Showers in the Vicinity"
+msgstr  ""
+
+#: Weather.py:774
+msgid   "Showers/Wind"
+msgstr  ""
+
+#: Weather.py:776
+msgid   "Sleet and Freezing Rain"
+msgstr  ""
+
+#: Weather.py:778
+msgid   "Sleet/Windy"
+msgstr  ""
+
+#: Weather.py:780
+msgid   "Snow Grains"
+msgstr  ""
+
+#: Weather.py:782
+msgid   "Snow Late"
+msgstr  ""
+
+#: Weather.py:784
+msgid   "Snow Shower"
+msgstr  ""
+
+#: Weather.py:786
+msgid   "Snow Showers Early"
+msgstr  ""
+
+#: Weather.py:788
+msgid   "Snow Showers Late"
+msgstr  ""
+
+#: Weather.py:790
+msgid   "Snow Showers"
+msgstr  ""
+
+#: Weather.py:792
+msgid   "Snow Showers/Wind"
+msgstr  ""
+
+#: Weather.py:794
+msgid   "Snow to Rain"
+msgstr  ""
+
+#: Weather.py:796
+msgid   "Snow"
+msgstr  ""
+
+#: Weather.py:798
+msgid   "Snow/Wind"
+msgstr  ""
+
+#: Weather.py:800
+msgid   "Snow/Windy"
+msgstr  ""
+
+#: Weather.py:802
+msgid   "Squalls"
+msgstr  ""
+
+#: Weather.py:804
+msgid   "Sunny"
+msgstr  ""
+
+#: Weather.py:806
+msgid   "Sunny/Wind"
+msgstr  ""
+
+#: Weather.py:808
+msgid   "Sunny/Windy"
+msgstr  ""
+
+#: Weather.py:810
+msgid   "T-showers"
+msgstr  ""
+
+#: Weather.py:812
+msgid   "Thunder in the Vicinity"
+msgstr  ""
+
+#: Weather.py:814
+msgid   "Thunder"
+msgstr  ""
+
+#: Weather.py:816
+msgid   "Thundershowers Early"
+msgstr  ""
+
+#: Weather.py:818
+msgid   "Thundershowers"
+msgstr  ""
+
+#: Weather.py:820
+msgid   "Thunderstorm"
+msgstr  ""
+
+#: Weather.py:822
+msgid   "Thunderstorm/Windy"
+msgstr  ""
+
+#: Weather.py:824
+msgid   "Thunderstorms Early"
+msgstr  ""
+
+#: Weather.py:826
+msgid   "Thunderstorms Late"
+msgstr  ""
+
+#: Weather.py:828
+msgid   "Thunderstorms"
+msgstr  ""
+
+#: Weather.py:830
+msgid   "Unknown Precipitation"
+msgstr  ""
+
+#: Weather.py:832
+msgid   "Unknown"
+msgstr  ""
+
+#: Weather.py:834
+msgid   "Wintry Mix"
+msgstr  ""
+
+#: Weather.py:836
+msgid   "not available"
+msgstr  ""

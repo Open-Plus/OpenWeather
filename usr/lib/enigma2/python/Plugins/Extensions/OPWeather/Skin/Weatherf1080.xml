@@ -1,0 +1,68 @@
+<screen name="Weatherfor" position="center,center" size="1920,1080" title="OpenPlus! Weather" backgroundColor="transparent" flags="wfNoBorder">
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/backfor.png" backgroundColor="background" position="396,175" size="1127,730" transparent="0" zPosition="-32" />
+                <widget source="timezonetxt" render="Label" position="1017,385" size="200,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="latitudetxt" render="Label" position="1017,318" size="200,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="longitudetxt" render="Label" position="1017,352" size="200,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="preciptxt" render="Label" position="1249,724" size="160,25" font="audiowide; 14" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="feelsliketxt" render="Label" position="510,369" size="150,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="humiditytxt" render="Label" position="770,327" size="110,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="windtxt" render="Label" position="770,369" size="150,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="left" transparent="1" />		
+		<widget source="pointtxt" render="Label" position="1017,419" size="262,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="left" transparent="1" />
+                <widget source="location" render="Label" position="1017,275" size="443,30" font="audiowide; 19" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="timezone" render="Label" position="1156,385" size="317,25" font="audiowide; 18" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="latitude" render="Label" position="1156,318" size="302,25" font="audiowide; 18" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="longitude" render="Label" position="1156,352" size="318,25" font="audiowide; 18" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="observationtime" render="Label" position="1013,804" size="129,25" font="audiowide; 16" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="observationpoint" render="Label" position="1017,447" size="435,25" font="audiowide; 18" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="attribution" render="Label" position="1112,804" size="346,25" font="audiowide; 16" foregroundColor="darkgrey" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="temperature" render="Label" position="497,316" size="162,51" font="audiowide; 35" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="feelslike" render="Label" position="509,401" size="150,41" font="audiowide; 25" foregroundColor="white" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="skytext" render="Label" position="493,444" size="460,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="humidity" render="Label" position="880,327" size="72,25" font="audiowide; 18" foregroundColor="white" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="winddisplay" render="Label" position="770,407" size="190,25" font="audiowide; 18" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+                <widget name="pic" position="667,335" size="96,96" zPosition="2" alphatest="blend" />
+                <widget source="preciptxt" render="Label" position="487,724" size="160,25" font="audiowide; 14" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="preciptxt" render="Label" position="994,724" size="160,25" font="audiowide; 14" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="temperature1" render="Label" position="487,697" size="205,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="skytext1" render="Label" position="482,746" size="215,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="precip1" render="Label" position="542,724" size="150,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="date1" render="Label" position="514,582" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="day1" render="Label" position="514,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" halign="center" transparent="1" backgroundColor="un363b38" />
+		<widget name="pic1" position="540,604" size="96,96" zPosition="2" alphatest="blend" />
+                <widget source="temperature2" render="Label" position="740,697" size="205,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="skytext2" render="Label" position="735,746" size="216,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="precip2" render="Label" position="795,724" size="150,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="date2" render="Label" position="765,582" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="day2" render="Label" position="765,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="un363b38" halign="center" transparent="1" />
+		<widget name="pic2" position="793,604" size="96,96" zPosition="2" alphatest="blend" />
+                <widget source="temperature3" render="Label" position="994,697" size="206,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="skytext3" render="Label" position="988,746" size="218,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="precip3" render="Label" position="1050,724" size="150,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="date3" render="Label" position="1020,583" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="day3" render="Label" position="1020,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="un363b38" halign="center" transparent="1" />
+		<widget name="pic3" position="1048,604" size="96,96" zPosition="2" alphatest="blend" />
+                <widget source="preciptxt" render="Label" position="740,724" size="160,25" font="audiowide; 14" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
+		<widget source="temperature4" render="Label" position="1249,697" size="205,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="skytext4" render="Label" position="1241,746" size="217,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="precip4" render="Label" position="1305,724" size="149,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
+		<widget source="date4" render="Label" position="1275,582" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
+		<widget source="day4" render="Label" position="1275,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="un363b38" halign="center" transparent="1" />
+		<widget name="pic4" position="1300,604" size="96,96" zPosition="2" alphatest="blend" />
+                <ePixmap position="1448,855" size="15,15" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/butred.png" transparent="1" alphatest="blend" />
+	<widget source="global.CurrentTime" render="Label" position="444,208" size="158,40" font="audiowide; 25" halign="left" backgroundColor="background" transparent="1" foregroundColor="darkgrey">
+  <convert type="ClockToText">Format:%H:%M:%S</convert>
+  </widget>
+<widget transparent="1" render="Label" zPosition="-2" valign="center" halign="center" position="center,833" size="1100,50" font="audiowide; 32" backgroundColor="background" foregroundColor="white" noWrap="1" source="Title" />
+<ePixmap position="514,315" size="17,50" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/temp.png" transparent="0" alphatest="blend" />
+<ePixmap position="849,360" size="30,49" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/wind.png" transparent="0" alphatest="blend" />
+<eLabel position="492,275" size="194,30" font="audiowide; 19" foregroundColor="unffa500" transparent="1" zPosition="-1" backgroundColor="background" halign="left" text="Datos Actuales:" />
+<widget source="date1" render="Label" position="790,275" size="160,30" font="audiowide; 19" foregroundColor="white" backgroundColor="background" halign="right" transparent="1" />
+<widget source="day1" render="Label" position="669,275" size="150,30" font="audiowide; 19" foregroundColor="white" backgroundColor="background" halign="right" transparent="1" />
+<eLabel position="493,307" size="457,2" backgroundColor="grey" zPosition="5" />
+<eLabel position="1018,307" size="430,2" backgroundColor="grey" zPosition="5" />
+<widget render="Label" position="459,804" size="550,25" zPosition="2" font="audiowide; 16" halign="right" transparent="1" foregroundColor="unffa500" backgroundColor="background" source="lab3b" />
+<ePixmap position="511,839" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/key_exit2.png" transparent="1" alphatest="blend" />
+<ePixmap position="1288,327" size="90,90" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/earth.png" transparent="0" alphatest="blend" />
+<widget position="1229,848" size="210,30" name="key_red" font="audiowide; 20" halign="right" backgroundColor="black" zPosition="3" transparent="1" />
+<ePixmap position="421,839" size="81,40" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/key_menu2.png" transparent="1" alphatest="blend" />
+</screen>

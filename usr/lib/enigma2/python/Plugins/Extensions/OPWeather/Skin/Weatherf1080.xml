@@ -27,26 +27,26 @@
 		<widget source="skytext1" render="Label" position="482,746" size="215,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="precip1" render="Label" position="542,724" size="150,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
 		<widget source="date1" render="Label" position="514,582" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
-		<widget source="day1" render="Label" position="514,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" halign="center" transparent="1" backgroundColor="un363b38" />
+		<widget source="day1" render="Label" position="514,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" halign="center" transparent="1" backgroundColor="#363b38" />
 		<widget name="pic1" position="540,604" size="96,96" zPosition="2" alphatest="blend" />
                 <widget source="temperature2" render="Label" position="740,697" size="205,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="skytext2" render="Label" position="735,746" size="216,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="precip2" render="Label" position="795,724" size="150,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
 		<widget source="date2" render="Label" position="765,582" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
-		<widget source="day2" render="Label" position="765,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="un363b38" halign="center" transparent="1" />
+		<widget source="day2" render="Label" position="765,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="#363b38" halign="center" transparent="1" />
 		<widget name="pic2" position="793,604" size="96,96" zPosition="2" alphatest="blend" />
                 <widget source="temperature3" render="Label" position="994,697" size="206,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="skytext3" render="Label" position="988,746" size="218,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="precip3" render="Label" position="1050,724" size="150,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
 		<widget source="date3" render="Label" position="1020,583" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
-		<widget source="day3" render="Label" position="1020,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="un363b38" halign="center" transparent="1" />
+		<widget source="day3" render="Label" position="1020,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="#363b38" halign="center" transparent="1" />
 		<widget name="pic3" position="1048,604" size="96,96" zPosition="2" alphatest="blend" />
                 <widget source="preciptxt" render="Label" position="740,724" size="160,25" font="audiowide; 14" foregroundColor="white" backgroundColor="background" halign="left" transparent="1" />
 		<widget source="temperature4" render="Label" position="1249,697" size="205,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="skytext4" render="Label" position="1241,746" size="217,25" font="audiowide; 18" foregroundColor="unffa500" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="precip4" render="Label" position="1305,724" size="149,25" font="audiowide; 14" foregroundColor="unffa500" backgroundColor="background" halign="right" transparent="1" />
 		<widget source="date4" render="Label" position="1275,582" size="150,25" font="audiowide; 20" foregroundColor="white" backgroundColor="background" halign="center" transparent="1" />
-		<widget source="day4" render="Label" position="1275,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="un363b38" halign="center" transparent="1" />
+		<widget source="day4" render="Label" position="1275,555" size="150,25" font="audiowide; 20" foregroundColor="unffa500" backgroundColor="#363b38" halign="center" transparent="1" />
 		<widget name="pic4" position="1300,604" size="96,96" zPosition="2" alphatest="blend" />
                 <ePixmap position="1448,855" size="15,15" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/images/butred.png" transparent="1" alphatest="blend" />
 	<widget source="global.CurrentTime" render="Label" position="444,208" size="158,40" font="audiowide; 25" halign="left" backgroundColor="background" transparent="1" foregroundColor="darkgrey">

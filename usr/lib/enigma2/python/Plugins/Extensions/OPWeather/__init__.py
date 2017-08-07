@@ -2,13 +2,14 @@
 # Last modified 28-10-2013
 # Adapted by Iqas & Villak for OpenPlus 2017
 
+from enigma import addFont
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 import os, gettext
 
 PluginLanguageDomain = "OPWeather"
 PluginLanguagePath = "Extensions/OPWeather/locale"
-
+addFont('/usr/lib/enigma2/python/Plugins/Extensions/OPWeather/Audiowide-Regular.ttf', 'audiowide', 100, False)
 def localeInit():
 	gettext.bindtextdomain(PluginLanguageDomain, resolveFilename(SCOPE_PLUGINS, PluginLanguagePath))
 
